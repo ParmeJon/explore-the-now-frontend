@@ -10,7 +10,7 @@ class ActivitiesHome extends React.Component {
   }
 
   handleInput = (userInput) => {
-    fetch(`http://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${userInput.term}&location=${userInput.location}&open_now=true&radius=${userInput.radius}&price=${userInput.price}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${userInput.term}&location=${userInput.location}&open_now=true&radius=${userInput.radius}&price=${userInput.price}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
