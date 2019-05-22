@@ -12,7 +12,7 @@ class ActivityCardwithTime extends React.Component {
     return (
       <div className="activity-card">
         <div className="card">
-        <div className="thumbnail"><img className="left" src={this.props.business.image_url}/></div>
+        <div className="thumbnail"><img className="left" src={this.props.business.image_url} alt="thumbnail"/></div>
         <div className="right">
           <h1>{this.props.business.name}</h1>
           <div className="author">
@@ -21,7 +21,7 @@ class ActivityCardwithTime extends React.Component {
           <div className="separator"></div>
           <p>Magnesium is one of the six essential macro-minerals that is required by the body for energy production and synthesis of protein and enzymes. It contributes to the development of bones and most importantly it is responsible for synthesis of your DNA and RNA. A new report that has appeared in theBritish Journal of Cancer, gives you another reason to add more magnesium to your diet...</p>
         </div>
-        <ul><li><a href={this.props.business.url} target="_blank">Visit Website</a></li></ul>
+        <ul><li><a href={this.props.business.url} target="_blank" rel="noopener noreferrer">Visit Website</a></li></ul>
         <label htmlFor="radius">Set time (mins)</label>
         <input className="form-control" type="text" name="setMinutes" placeholder="number" value={this.state.setMinutes} onChange={this.handleChange} />
         <div className="fab" onClick={() => this.props.handleAddActivity(this.props.business, this.state)}><i className={this.props.button}></i></div>

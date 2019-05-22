@@ -33,7 +33,7 @@ class ExperienceCard extends React.Component {
     return (
       <div className="experience-card">
         <div className="card">
-        <div className="thumbnail"><img className="left" src={this.props.business.activity ? this.props.business.activity.image_url : this.props.activity.image_url}/></div>
+        <div className="thumbnail"><img className="left" src={this.props.business.activity ? this.props.business.activity.image_url : this.props.activity.image_url} alt="thumbnail"/></div>
         <div className="right">
           <h1>{this.props.business.activity ? this.props.business.activity.name : this.props.activity.name}</h1>
           <div className="author">
@@ -44,8 +44,8 @@ class ExperienceCard extends React.Component {
           <p>Rating: {this.props.business.activity ? this.props.business.activity.rating : this.props.activity.rating}</p>
         </div>
         <ul>
-          <li><a href={this.props.business.activity ? this.props.business.activity.url : this.props.activity.url} target="_blank">Visit Website</a></li>
-          <li><a href={this.props.business.activity ? this.props.business.activity.display_phone : this.props.activity.display_phone} target="_blank">Call Business</a></li>
+          <li><a href={this.props.business.activity ? this.props.business.activity.url : this.props.activity.url} target="_blank" rel="noopener noreferrer">Visit Website</a></li>
+          <li><a href={this.props.business.activity ? this.props.business.activity.display_phone : this.props.activity.display_phone} target="_blank" rel="noopener noreferrer">Call Business</a></li>
         </ul>
         <div class="container">
           <p id="timer">
