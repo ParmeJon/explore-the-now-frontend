@@ -23,7 +23,7 @@ class App extends Component {
   componentDidMount = () => {
     let token = localStorage.token;
     token
-      ? fetch("https://explore-the-now.herokuapp.com/api/v1/current_user", {
+      ? fetch("http://localhost:3000/api/v1/current_user", {
           method: "GET",
           headers: {
             "content-type": "application/json",
@@ -52,7 +52,7 @@ class App extends Component {
 // our backend API. It also saves a jwt token to the local storage and pushes the
 // user to "/activities-home"
   signupSubmitHandler = (userInfo) => {
-    fetch("https://explore-the-now.herokuapp.com/api/v1/users", {
+    fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -72,7 +72,7 @@ class App extends Component {
 
 // login handler sends over userInfo body
   loginSubmitHandler = (userInfo) => {
-  fetch("https://explore-the-now.herokuapp.com/api/v1/login", {
+  fetch("http://localhost:3000/api/v1/login", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -97,7 +97,7 @@ class App extends Component {
     e.persist()
     if(e.target.className === 'fab3' || e.target.className === 'fa fa-thumbs-up fa-3x') {
       console.log('thumbs up');
-      fetch(`https://explore-the-now.herokuapp.com/api/v1/experiences/${businessInfo.id}`, {
+      fetch(`http://localhost:3000/api/v1/experiences/${businessInfo.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ class App extends Component {
         })
     } else if(e.target.className === 'fab2' || e.target.className === 'fa fa-thumbs-down fa-3x') {
       console.log('thumbs down');
-      fetch(`https://explore-the-now.herokuapp.com/api/v1/experiences/${businessInfo.id}`, {
+      fetch(`http://localhost:3000/api/v1/experiences/${businessInfo.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -125,14 +125,14 @@ class App extends Component {
         })
     } else if(e.target.className === 'fab4' || e.target.className === 'fa fa-calendar-times fa-3x') {
       console.log('cal x');
-      fetch(`https://explore-the-now.herokuapp.com/api/v1/experiences/${businessInfo.id}`, {
+      fetch(`http://localhost:3000/api/v1/experiences/${businessInfo.id}`, {
         method: 'DELETE'
       })
       this.props.history.push('/activities-home')
       this.handleDeleteExp()
     } else if(e.target.className === 'fab' || e.target.className === 'fa fa-calendar-check fa-3x') {
       console.log('cal check');
-      fetch(`https://explore-the-now.herokuapp.com/api/v1/experiences/${businessInfo.id}`, {
+      fetch(`http://localhost:3000/api/v1/experiences/${businessInfo.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ class App extends Component {
   }
 
   handleConfirmActivity = (activityInfo, mins) => {
-    fetch('https://explore-the-now.herokuapp.com/api/v1/activities', {
+    fetch('http://localhost:3000/api/v1/activities', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -161,7 +161,7 @@ class App extends Component {
       body: JSON.stringify({activity: {term: activityInfo.categories[0].title, location: activityInfo.location.display_address.join(", "), name: activityInfo.name, image_url: activityInfo.image_url, url: activityInfo.url, rating: activityInfo.rating, display_phone: activityInfo.display_phone}})
     }).then(resp => resp.json())
       .then(activity => {
-        fetch('https://explore-the-now.herokuapp.com/api/v1/experiences', {
+        fetch('http://localhost:3000/api/v1/experiences', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
